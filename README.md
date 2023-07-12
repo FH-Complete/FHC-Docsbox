@@ -88,8 +88,7 @@ GET /api/v1/{task_id}
 ```
 
 # Install
-Installation and configuration are done by ansible
-
+Check the PDF installation guide in this repository
 
 # Settings (env)
 
