@@ -13,6 +13,8 @@ Settings(app, rules={
     "RESULT_FILE_TTL": (int, 60 * 60 * 1),
 
     "LIBREOFFICE_PATH": (str, "/usr/lib/libreoffice/program/"),
+    "DRAWIO_PATH": (str, "/usr/bin/drawio"),
+    "XVFB_RUN_PATH": (str, "/usr/bin/xvfb-run"),
 
     "THUMBNAILS_DPI": (int, 90),
     "THUMBNAILS_QUANTIZE": (bool, False),

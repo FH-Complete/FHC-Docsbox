@@ -8,6 +8,7 @@ LOGS_PATH = os.path.join(BASE_DIR, "logs/")
 MEDIA_PATH = os.path.join(BASE_DIR, "media/")
 MEDIA_URL = "/media/"
 
+# Supported output formats that can be requested via API
 SUPPORTED_FORMATS = {
     "pdf": {
         "path": "pdf",
@@ -28,76 +29,107 @@ SUPPORTED_FORMATS = {
     "zip": {
         "path": "zip",
         "fmt": "zip"
+    },
+    "docx": {
+        "path": "docx",
+        "fmt": "docx"
+    },
+    "jpeg": {
+        "path": "jpeg",
+        "fmt": "jpeg"
+    },
+    "png": {
+        "path": "png",
+        "fmt": "png"
     }
 }
 
-DOCUMENT_EXPORT_FORMATS = ["pdf", "txt", "html"]
+# Possible file formats to export:
+DOCUMENT_EXPORT_FORMATS = ["pdf", "txt", "html", "docx"]
 SPREADSHEET_EXPORT_FORMATS = ["pdf", "csv", "html"]
 PRESENTATION_EXPORT_FORMATS = ["pdf", "html"]
 PDF_EXPORT_FORMATS = ["html"]
+DRAWIO_EXPORT_FORMATS = ["png", "jpeg"]
 
+# Mime type of the uploaded file and related exportable file formats
 SUPPORTED_MIMETYPES = {
     # Microsoft Word 2003
     "application/msword": {
-        "formats": DOCUMENT_EXPORT_FORMATS,
+        "formats": DOCUMENT_EXPORT_FORMATS
     },
 
     # Microsoft Word 2007
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document": {
-        "formats": DOCUMENT_EXPORT_FORMATS,
+        "formats": DOCUMENT_EXPORT_FORMATS
     },
 
     # LibreOffice Writer
     "application/vnd.oasis.opendocument.text": {
-        "formats": DOCUMENT_EXPORT_FORMATS,
-    },
-
-    # Portable Document Format
-    "application/pdf": {
-        "formats": PDF_EXPORT_FORMATS,
+        "formats": DOCUMENT_EXPORT_FORMATS
     },
 
     # Rich Text Format
     "text/rtf": {
-        "formats": DOCUMENT_EXPORT_FORMATS,
-    },
-
-    # Microsoft Excel 2003
-    "application/vnd.ms-excel": {
-        "formats": SPREADSHEET_EXPORT_FORMATS,
-    },
-
-    # Microsoft Excel 2007
-    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
-        "formats": SPREADSHEET_EXPORT_FORMATS,
-    },
-
-    # LibreOffice Calc
-    "application/vnd.oasis.opendocument.spreadsheet": {
-        "formats": SPREADSHEET_EXPORT_FORMATS,
-    },
-
-    # Microsoft Powerpoint 2003
-    "application/vnd.ms-powerpoint": {
-        "formats": PRESENTATION_EXPORT_FORMATS,
-    },
-
-    # Microsoft Powerpoint 2007
-    "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
-        "formats": PRESENTATION_EXPORT_FORMATS,
-    },
-
-    # LibreOffice Impress
-    "application/vnd.oasis.opendocument.presentation": {
-        "formats": PRESENTATION_EXPORT_FORMATS,
+        "formats": DOCUMENT_EXPORT_FORMATS
     },
 
     # Zip
     "application/zip": {
-        "formats": DOCUMENT_EXPORT_FORMATS,
+        "formats": DOCUMENT_EXPORT_FORMATS
+    },
+
+    # Microsoft Excel 2003
+    "application/vnd.ms-excel": {
+        "formats": SPREADSHEET_EXPORT_FORMATS
+    },
+
+    # Microsoft Excel 2007
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
+        "formats": SPREADSHEET_EXPORT_FORMATS
+    },
+
+    # LibreOffice Calc
+    "application/vnd.oasis.opendocument.spreadsheet": {
+        "formats": SPREADSHEET_EXPORT_FORMATS
+    },
+
+    # Microsoft Powerpoint 2003
+    "application/vnd.ms-powerpoint": {
+        "formats": PRESENTATION_EXPORT_FORMATS
+    },
+
+    # Microsoft Powerpoint 2007
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
+        "formats": PRESENTATION_EXPORT_FORMATS
+    },
+
+    # LibreOffice Impress
+    "application/vnd.oasis.opendocument.presentation": {
+        "formats": PRESENTATION_EXPORT_FORMATS
+    },
+
+    # Portable Document Format
+    "application/pdf": {
+        "formats": PDF_EXPORT_FORMATS
+    },
+
+    # Drawio
+    "application/x-drawio": {
+        "formats": DRAWIO_EXPORT_FORMATS
+    },
+
+    # Drawio
+    "text/plain": {
+        "formats": DRAWIO_EXPORT_FORMATS
+    },
+
+    # Scalable Vector Graphics (SVG)
+    "image/svg+xml": {
+        "formats": DRAWIO_EXPORT_FORMATS
     }
 }
 
+# Default output format
 DEFAULT_OPTIONS = {
     "formats": ["pdf"]
 }
