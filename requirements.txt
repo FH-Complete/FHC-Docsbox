@@ -24,6 +24,7 @@ PyVirtualDisplay==3.0
 redis==5.2.0
 rq==2.0.0
 rq-scheduler==0.14.0
+setuptools==80.9.0
 six==1.16.0
 ujson==5.10.0
 Wand==0.6.13
